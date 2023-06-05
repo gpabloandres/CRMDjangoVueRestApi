@@ -28,7 +28,11 @@ export default {
       axios.defaults.headers.common['Authorization'] = "Token " + this.$store.state.token
     } else {
       axios.defaults.headers.common['Authorization'] = " "
-    } 
+    }
+    
+    if (!this.$store.state.team.id) {
+      this.$router.push('/dashboard/add-team')
+    }
   }
 }
 </script>

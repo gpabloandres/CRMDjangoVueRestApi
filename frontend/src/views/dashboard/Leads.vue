@@ -8,12 +8,13 @@
             </div>
 
             <div class="column is-12">
-                <table class="table">
+                <table class="table is-fullwidth">
                     <thead>
                         <tr>
                             <th>Company</th>
                             <th>Contact person</th>
                             <th>Status</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -22,7 +23,10 @@
                             v-bind:key="lead.id">
                                 <td>{{ lead.company }}</td>
                                 <td>{{ lead.contact_person }}</td>
-                                <td>{{ lead.status }}</td>                            
+                                <td>{{ lead.status }}</td>
+                                <td>
+                                    <router-link :to="{ name: 'EditLead', params: { id: lead.id }}">Details</router-link>
+                                </td>                            
                         </tr>
                     </tbody>
                 </table>
@@ -48,8 +52,8 @@
             async getLeads() {
                 this.$store.commit('setIsLoading', true)
 
-                axios
-                    .get('/api/v1/leads/')
+                await axios
+                    .get(`/api/v1/leads/`)
                     .then(response => {
                         this.leads = response.data
                     })
