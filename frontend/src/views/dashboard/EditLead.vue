@@ -130,6 +130,7 @@
         },
         mounted() {
             this.getLead()
+            this.getTeam()
         },
         methods: {
             async getLead() {
@@ -173,6 +174,20 @@
 
                 this.$store.commit('setIsLoading', false)
             },
+            async getTeam() {
+                this.$store.commit('setIsLoading', true)
+
+                await axios
+                    .get('/api/v1/teams/get_my_team/')
+                    .then(response => {
+                        this.team = response.data
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    })
+                
+                this.$store.commit('setIsLoading', false)
+            }
         }
     }
 </script>

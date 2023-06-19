@@ -6,8 +6,11 @@
             </div>
 
             <div class="column is-12">
-                <button @click="logout()" class="button is-danger">Log out</button>
+                <div class="buttons">
+                    <router-link :to="{ name: 'EditMember', params: { id: $store.state.user.id }}" class="button is-light">Edit</router-link>
 
+                    <button @click="logout()" class="button is-danger">Log out</button>
+                </div>
             </div>
         </div>
     </div>            
@@ -31,6 +34,10 @@
 
                 axios.defaults.headers.common['Authorization'] = ''
                 localStorage.removeItem('token')
+                localStorage.removeItem('username')
+                localStorage.removeItem('userid')
+                localStorage.removeItem('team_name')
+                localStorage.removeItem('team_id')
                 this.$store.commit('removeToken')
 
                 this.$router.push('/')

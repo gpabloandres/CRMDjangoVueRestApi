@@ -9,7 +9,17 @@ import MyAccount from '../views/dashboard/MyAccount'
 import Leads from '../views/dashboard/Leads'
 import Lead from '../views/dashboard/Lead'
 import AddLead from '../views/dashboard/AddLead'
-import EditLead from '../views/dashboard/EditLead' 
+import EditLead from '../views/dashboard/EditLead'
+import AddTeam from '../views/dashboard/AddTeam'
+import Team from '../views/dashboard/Team'
+import AddMember from '../views/dashboard/AddMember'
+import Clients from '../views/dashboard/Clients'
+import AddClient from '../views/dashboard/AddClient'
+import Client from '../views/dashboard/Client'
+import EditClient from '../views/dashboard/EditClient'
+import AddNote from '../views/dashboard/AddNote'
+import EditNote from '../views/dashboard/EditNote'
+import EditMember from '../views/dashboard/EditMember'
 
 const routes = [
   {
@@ -57,6 +67,38 @@ const routes = [
     }
   },
   {
+    path: '/dashboard/team',
+    name: 'Team',
+    component: Team,
+    meta: {
+      requireLogin: true
+    }
+  },
+  {
+    path: '/dashboard/edit-member/:id',
+    name: 'EditMember',
+    component: EditMember,
+    meta: {
+      requireLogin: true
+    }
+  },
+  {
+    path: '/dashboard/add-member',
+    name: 'AddMember',
+    component: AddMember,
+    meta: {
+      requireLogin: true
+    }
+  },
+  {
+    path: '/dashboard/add-team',
+    name: 'AddTeam',
+    component: AddTeam,
+    meta: {
+      requireLogin: true
+    }
+  },
+  {
     path: '/dashboard/leads',
     name: 'Leads',
     component: Leads,
@@ -84,6 +126,54 @@ const routes = [
     path: '/dashboard/leads/:id/edit',
     name: 'EditLead',
     component: EditLead,
+    meta: {
+      requireLogin: true
+    }
+  },
+  {
+    path: '/dashboard/clients',
+    name: 'clients',
+    component: Clients,
+    meta: {
+      requireLogin: true
+    }
+  },
+  {
+    path: '/dashboard/clients/add',
+    name: 'AddClient',
+    component: AddClient,
+    meta: {
+      requireLogin: true
+    }
+  },
+  {
+    path: '/dashboard/clients/:id',
+    name: 'Client',
+    component: Client,
+    meta: {
+      requireLogin: true
+    }
+  },
+  {
+    path: '/dashboard/clients/:id/edit',
+    name: 'EditClient',
+    component: EditClient,
+    meta: {
+      requireLogin: true
+    }
+  },
+  {
+    path: '/dashboard/clients/:id/add-note',
+    name: 'AddNote',
+    component: AddNote,
+    meta: {
+      requireLogin: true
+    }
+  },
+  {
+    path: '/dashboard/clients/:id/edit-note/:note_id',
+    name: 'EditNote',
+    component: EditNote,
     meta: {
       requireLogin: true
     }
