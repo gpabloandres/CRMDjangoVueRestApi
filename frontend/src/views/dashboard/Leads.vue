@@ -8,7 +8,7 @@
                 
                 <hr>
 
-                <form @submit.prevent="submitForm">
+                <form @submit.prevent="getLeads">
                     <div class="field has-addons">
                         <div class="control">
                             <input type="text" class="input" v-model="query">
@@ -108,9 +108,6 @@
                     })
 
                 this.$store.commit('setIsLoading', false)
-            },
-            submitForm() {
-                this.getLeads()                
             }
         }
     }
